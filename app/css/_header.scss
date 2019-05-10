@@ -1,3 +1,70 @@
 header{
-    
+    .background{
+        min-height: 150px;
+        background-color: $color-primary_1;
+        .img_wrapper{
+            min-height: 150px;
+            .choose{
+                @include text(25px, $color-primary_2, 'Lucida Sans');
+            }
+           .img_side{
+               width: 100%;
+               .currency_side{
+                    i{
+                        color: $color-primary_2;
+                        font-size: 70px;
+                    }
+                }
+                .prev{
+                    color: $color-primary_2;
+                    font-size: 70px;
+                    &:hover{
+                        color: $color-primary_3;
+                        cursor: pointer;
+                    }
+                }
+                .next{
+                    color: $color-primary_2;
+                    font-size: 70px;
+                    &:hover{
+                        color: $color-primary_3;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .title_wrapper{
+            min-height: 150px;
+            text-align: center;
+            .title{
+                @include text(50px, $color-primary_2, 'Lucida Sans');
+                text-transform: uppercase;
+            }
+            .text_cap_title{
+                @include text(25px, $color-primary_2, 'Lucida Sans');
+            }
+        }
+        .contact_wrapper{
+           .text_wrapper{
+               width: 100%;
+               min-height: 75px;
+                .contact{
+                    @include text(35px, $color-primary_2, 'Lucida Sans');
+                    text-transform: uppercase;
+                }
+            }
+            .contact_img{
+                width: 100%;
+                min-height: 75px;
+                i{
+                    color: $color-primary_2;
+                    font-size: 50px;
+                    &:hover{
+                        color: $color-primary_3;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
 }
