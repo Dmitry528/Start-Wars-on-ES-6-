@@ -54,8 +54,10 @@ var gulp = require("gulp"),
     del = require('del'), // плагин для удаления файлов и каталогов
     postcss = require('gulp-postcss');
 
-
 /* задачи */
+
+/* Покдлючаем Babel js для транспиляции в стандарт ES-5 */
+const babel = require('gulp-babel');
 
 // запуск сервера +
 gulp.task('browserSync', function (done) {
@@ -104,6 +106,9 @@ gulp.task('css:build', function (done) {
 // сбор js
 gulp.task('jsmain:build', function (done) {
     gulp.src(path.app.jsmain) // получим файл main.js
+        .pipe(babel({
+            presets: ['es2015'] // для компиляции ES6
+        }))
         .pipe(plumber()) // для отслеживания ошибок
         .pipe(rigger()) // импортируем все указанные файлы в main.js
         .pipe(sourcemaps.init()) //инициализируем sourcemap
