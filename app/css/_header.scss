@@ -18,6 +18,9 @@ header{
                 .prev{
                     color: $color-primary_2;
                     font-size: 70px;
+                    @include width1199px{
+                       font-size: 60px;
+                    }
                     &:hover{
                         color: $color-primary_3;
                         cursor: pointer;
@@ -26,6 +29,9 @@ header{
                 .next{
                     color: $color-primary_2;
                     font-size: 70px;
+                    @include width1199px{
+                       font-size: 60px;
+                    }
                     &:hover{
                         color: $color-primary_3;
                         cursor: pointer;
@@ -49,8 +55,12 @@ header{
                width: 100%;
                min-height: 75px;
                 .contact{
-                    @include text(35px, $color-primary_2, 'Lucida Sans');
+                    text-align: center;
+                    @include text(30px, $color-primary_2, 'Lucida Sans');
                     text-transform: uppercase;
+                    @include width1199px{
+                        @include text(24px, $color-primary_2, 'Lucida Sans');
+                    }
                 }
             }
             .contact_img{
@@ -59,6 +69,9 @@ header{
                 i{
                     color: $color-primary_2;
                     font-size: 50px;
+                    @include width1199px{
+                       font-size: 40px;
+                    }
                     &:hover{
                         color: $color-primary_3;
                         cursor: pointer;
