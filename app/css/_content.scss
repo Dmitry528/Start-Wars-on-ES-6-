@@ -1,3 +1,52 @@
+.main_slider{
+    height: 90vh;
+    .btn_wrapper{
+        min-height: 600px;
+        i{
+            color: $color-primary_1;
+            font-size: 70px;
+            &:hover{
+                color: $color-primary_3;
+                cursor: pointer;
+            }
+        }
+    }
+    .img_wrapper{
+        min-height: 600px;
+        img{
+            height: 580px;
+            width: 100%;
+        }
+    }
+}
+
 main{
-    
+    background: url(../img/stars.jpg) no-repeat;
+    height:100vh;
+    width: auto;
+    background-size: cover;
+    table{
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+        tr {
+            background: #f8f8f8; 
+            opacity: 0.6; 
+            td, th{
+                padding: 20px;
+                text-align: left;
+            }
+            th{
+                background: #999;
+                color: #fff;
+                font-size: .85em;
+                letter-spacing: .1em;
+                text-transform: uppercase;
+            }
+            td{
+                @include text(14px, $color-primary_1, 'Lucida Sans');
+            }
+        }
+    }  
 }
