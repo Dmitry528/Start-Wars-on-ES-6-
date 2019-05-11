@@ -19,6 +19,8 @@ xhr.onreadystatechange = function () {
 
 
 /* UI features in header */
+
+  /* choose side */
 let button_shoose = document.querySelector(".button_shoose");
 let currency_side = document.querySelector(".currency_side i");
 let side_classes = ["fab fa-sith", "fas fa-jedi"];
@@ -66,3 +68,43 @@ button_shoose.addEventListener("click", function(){
   }
 });
 
+  /* img slider */
+
+let slider_img = [
+  "../img/img_slider_1.jpg",
+  "../img/img_slider_2.jpg",
+  "../img/img_slider_3.jpg"
+];
+let current_slider = document.querySelector(".current_slider");
+
+let prev_slider = document.querySelector(".prev_slider");
+let next_slider = document.querySelector(".next_slider");
+
+let slider_counter = 0;
+current_slider.setAttribute("src", slider_img[slider_counter]);
+
+next_slider.addEventListener("click", function(){
+  slider_counter++;
+  if(slider_counter > slider_img.length - 1){
+    slider_counter = 0;
+  }
+  current_slider.setAttribute("src", slider_img[slider_counter]);
+});
+
+prev_slider.addEventListener("click", function(){
+  slider_counter--;
+  if(slider_counter < 0){
+    slider_counter = slider_img.length -1;
+  }
+  current_slider.setAttribute("src", slider_img[slider_counter]);
+});
+
+setInterval(
+  function() {
+    slider_counter++;
+    if (slider_counter > slider_img.length - 1) {
+      slider_counter = 0;
+    }
+    current_slider.setAttribute("src", slider_img[slider_counter]);
+  }, 8000
+);
