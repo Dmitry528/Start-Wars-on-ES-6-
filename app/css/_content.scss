@@ -46,7 +46,19 @@ main{
                 text-transform: uppercase;
             }
             td{
-                @include text(14px, $color-primary_1, 'Lucida Sans');
+                @include text(16px, $color-primary_1, 'Lucida Sans');
+            }
+        }
+    }
+    .button_table_wrapper{
+        height:100vh;
+        i{
+            font-size: 30px;
+            color: $color-primary_2;
+            opacity: 0.4;
+            cursor: pointer;
+            &:hover{
+                color: $color-primary_3;
             }
         }
     }  
