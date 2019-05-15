@@ -1,84 +1,18 @@
-window.addEventListener("load", init);
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "https://swapi.co/api/people/", true);
+xhr.send();
+xhr.onreadystatechange = function () {
+  if (xhr.readyState != 4) return;
 
-function init() {
-  let callback_function = [
-    { data: render_table }
-  ];
-
-  let url = `https://swapi.co/api/people/?page=1`;
-
-  for (let i = 0; i < callback_function.length; i++) {
-    request(callback_function[i].data, url);
+  if (xhr.status != 200) {
+    var errStatus = xhr.status;
+    var errText = xhr.statusText;
+    console.log(errStatus + ": " + errText);
+  } else {
+    var data = JSON.parse(xhr.responseText);
+    console.log(data);
   }
-}
-
-function request(callback, url) {
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
-  xhr.send();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState != 4) return;
-
-    if (xhr.status != 200) {
-      var errStatus = xhr.status;
-      var errText = xhr.statusText;
-      console.log(errStatus + ": " + errText);
-    } else {
-      var data = JSON.parse(xhr.responseText);
-      callback(data);
-      console.log(data);
-    }
-  };
-}
-
-
-function render_table(data) {
-  let table = document.querySelector("table");
-
-  for (let i = 0; i < 10; i++) {
-    let tr = document.createElement("tr");
-    let td = document.createElement("td");
-    let td_2 = document.createElement("td");
-    let td_3 = document.createElement("td");
-    let td_4 = document.createElement("td");
-    let td_5 = document.createElement("td");
-    let td_6 = document.createElement("td");
-
-    td.innerHTML = data.results[i].name;
-    td_2.innerHTML = data.results[i].gender;
-    td_3.innerHTML = data.results[i].height;
-    td_4.innerHTML = data.results[i].mass;
-    td_5.innerHTML = data.results[i].birth_year;
-    td_6.innerHTML = data.results[i].skin_color;
-
-    tr.appendChild(td);
-    tr.appendChild(td_2);
-    tr.appendChild(td_3);
-    tr.appendChild(td_4);
-    tr.appendChild(td_5);
-    tr.appendChild(td_6);
-    table.appendChild(tr);
-  }
-}
-
-/* create pagination */
-
-//let button_next = document.querySelector(".next_table");
-//let button_prev = document.querySelector(".prev_table");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 
 
