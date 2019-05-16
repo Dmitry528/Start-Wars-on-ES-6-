@@ -63,10 +63,6 @@ function render_table(data) {
 
 /* create pagination */
 
-//let button_next = document.querySelector(".next_table");
-//let button_prev = document.querySelector(".prev_table");
-
-
 
 
 
