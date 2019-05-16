@@ -64,3 +64,21 @@ main{
         }
     }  
 }
+
+.validation{
+    height: 100vh;
+    .validation_form_wrapper{
+        background-color: $color-primary_2;
+        height: 300px;
+        width: 400px;
+        margin: 0 auto;
+        border-radius: 10px;
+        opacity: 0.8;
+        .error{
+            font-size: 18px;
+            font-weight: bold;
+            color: $color-primary_5;
+            display: none;
+        }
+    }
+}

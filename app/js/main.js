@@ -1,18 +1,41 @@
 window.addEventListener("load", init);
 
-function init() {
-  let callback_function = [
-    { data: render_table }
-  ];
+let nextPage = 1
+let button_next = document.querySelector(".next_table");
+let button_prev = document.querySelector(".prev_table");
 
-  let url = `https://swapi.co/api/people/?page=1`;
 
-  for (let i = 0; i < callback_function.length; i++) {
-    request(callback_function[i].data, url);
-  }
+function init(){
+  request(render_table, request.url);
+  next_paginator();
+  back_paginator();
 }
 
-function request(callback, url) {
+function next_paginator(){
+  button_next.addEventListener("click", function(){
+    if(nextPage >= 1 || nextPage < 8){
+      nextPage++;
+      request.url = `https://swapi.co/api/people/?page=${nextPage}`;
+      request(Rerender_table, request.url);
+      return nextPage;
+    }
+  });
+}
+
+function back_paginator(){
+  button_prev.addEventListener("click", function(){
+    if (nextPage >= 2 || nextPage < 8) {
+      nextPage--;
+      request.url = `https://swapi.co/api/people/?page=${nextPage}`;
+      request(Backrender_table, request.url);
+      return nextPage;
+    }
+  });
+}
+
+
+
+function request(callback, url){
   let xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
   xhr.send();
@@ -25,16 +48,16 @@ function request(callback, url) {
       console.log(errStatus + ": " + errText);
     } else {
       var data = JSON.parse(xhr.responseText);
+      //console.log(data);
       callback(data);
-      console.log(data);
     }
   };
 }
 
+request.url = `https://swapi.co/api/people/?page=1`;
 
-function render_table(data) {
+let render_table = (data) => {
   let table = document.querySelector("table");
-
   for (let i = 0; i < 10; i++) {
     let tr = document.createElement("tr");
     let td = document.createElement("td");
@@ -58,34 +81,36 @@ function render_table(data) {
     tr.appendChild(td_5);
     tr.appendChild(td_6);
     table.appendChild(tr);
+  }  
+}
+
+let Rerender_table = (data) =>{
+  let table = document.querySelector("table");
+  let arrOftd = document.querySelectorAll("td");
+  let cntr = 0;
+  for (let i = 0; i < data.results.length; i++) {
+    arrOftd[cntr++].innerHTML = data.results[i].name;
+    arrOftd[cntr++].innerHTML = data.results[i].gender;
+    arrOftd[cntr++].innerHTML = data.results[i].height;
+    arrOftd[cntr++].innerHTML = data.results[i].mass;
+    arrOftd[cntr++].innerHTML = data.results[i].birth_year;
+    arrOftd[cntr++].innerHTML = data.results[i].skin_color;
   }
 }
 
-/* create pagination */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let Backrender_table = (data) => {
+  let table = document.querySelector("table");
+  let arrOftd = document.querySelectorAll("td");
+  let cntr = 0;
+  for (let i = 0; i < data.results.length; i++) {
+    arrOftd[cntr++].innerHTML = data.results[i].name;
+    arrOftd[cntr++].innerHTML = data.results[i].gender;
+    arrOftd[cntr++].innerHTML = data.results[i].height;
+    arrOftd[cntr++].innerHTML = data.results[i].mass;
+    arrOftd[cntr++].innerHTML = data.results[i].birth_year;
+    arrOftd[cntr++].innerHTML = data.results[i].skin_color;
+  }
+}
 
 /* UI features in header */
 
@@ -177,3 +202,52 @@ setInterval(
     current_slider.setAttribute("src", slider_img[slider_counter]);
   }, 8000
 );
+
+
+
+
+/* creating  validation */
+
+const login_adm = "Admin";
+const password_adm = "Admin123";
+
+let btn_data = document.querySelector(".btn_get_data");
+
+btn_data.addEventListener("click", get_input_data);
+
+function get_input_data(){
+  let login = document.querySelector(".login").value;
+  let password = document.querySelector(".password").value;
+
+  if(login == login_adm && password == password_adm){
+    //console.log("We can set items in storage");
+    let error = document.querySelector(".error");
+    error.style.display = "none";
+
+    localStorage.setItem("Login", login);
+    localStorage.setItem("Role", "admin");
+
+    check_role();
+  } else{
+    let error = document.querySelector(".error");
+    error.style.display = "block";
+  }
+}
+
+
+function check_role(){
+  if(localStorage.getItem("Role") === "admin"){
+    let validation_block = document.querySelector(".validation");
+    console.log(validation_block);
+    validation_block.setAttribute("class", "d-none");
+    let reference = document.querySelector(".book");
+    reference.setAttribute("class", "d-flex");
+    reference.setAttribute("class", "align-items-center");
+    reference.setAttribute("class", "book");
+  }
+}
+
+check_role();
+
+
+/* если чекаут то проверяэм роль і якщо немає адміна то ошибка */
