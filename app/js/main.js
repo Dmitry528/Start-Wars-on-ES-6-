@@ -216,3 +216,8 @@ setInterval(
     current_slider.setAttribute("src", slider_img[slider_counter]);
   }, 8000
 );
+
+
+
+/* VALIDATION */
+
