@@ -35,7 +35,7 @@ main{
             background: #f8f8f8; 
             opacity: 0.8; 
             td, th{
-                padding: 20px;
+                padding: 15px;
                 text-align: left;
             }
             th{
@@ -50,6 +50,9 @@ main{
                 font-weight: bold;
             }
         }
+    }
+    .btn_out_wrapper{
+        margin-top: 7px;
     }
     .button_table_wrapper{
         height:100vh;
@@ -69,8 +72,8 @@ main{
     height: 100vh;
     .validation_form_wrapper{
         background-color: $color-primary_2;
-        height: 300px;
-        width: 400px;
+        height: 200px;
+        width: 300px;
         margin: 0 auto;
         border-radius: 10px;
         opacity: 0.8;

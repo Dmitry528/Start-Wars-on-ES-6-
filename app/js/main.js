@@ -249,5 +249,11 @@ function check_role(){
 
 check_role();
 
+let btn_out = document.querySelector(".btn_get_data");
+
+btn_out.addEventListener("click", function(){
+  localStorage.removeItem("Login");
+  localStorage.removeItem("Role");
+});
 
 /* если чекаут то проверяэм роль і якщо немає адміна то ошибка */
