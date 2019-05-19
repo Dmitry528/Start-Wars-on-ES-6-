@@ -35,7 +35,7 @@ main{
             background: #f8f8f8; 
             opacity: 0.8; 
             td, th{
-                padding: 20px;
+                padding: 15px;
                 text-align: left;
             }
             th{
@@ -46,10 +46,13 @@ main{
                 text-transform: uppercase;
             }
             td{
-                @include text(18px, $color-primary_1, 'Lucida Sans');
+                @include text(14px, $color-primary_1, 'Lucida Sans');
                 font-weight: bold;
             }
         }
+    }
+    .btn_out_wrapper{
+        margin-top: 7px;
     }
     .button_table_wrapper{
         height:100vh;
@@ -63,4 +66,22 @@ main{
             }
         }
     }  
+}
+
+.validation{
+    height: 100vh;
+    .validation_form_wrapper{
+        background-color: $color-primary_2;
+        height: 200px;
+        width: 300px;
+        margin: 0 auto;
+        border-radius: 10px;
+        opacity: 0.8;
+        .error{
+            font-size: 18px;
+            font-weight: bold;
+            color: $color-primary_5;
+            display: none;
+        }
+    }
 }

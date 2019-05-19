@@ -220,4 +220,59 @@ setInterval(
 
 
 /* VALIDATION */
+let book = document.querySelector(".book");
+let validation_block = document.querySelector(".validation");
+
+const login_adm = "Admin";
+const password_adm = "Admin123";
+
+let btn_data = document.querySelector(".btn_get_data");
+btn_data.addEventListener("click", get_data);
+
+function get_data() {
+  let login = document.querySelector(".login").value;
+  let password = document.querySelector(".password").value;
+
+
+  chek_valid_data(login, password);
+}
+
+function chek_valid_data(login, password){
+  if(login === login_adm && password === password_adm){
+    localStorage.setItem("Login", login);
+    localStorage.setItem("Role", "Admin");
+    if(localStorage.getItem("Role") === "Admin"){
+      render_main();
+    }
+  }
+  else{
+    let error = document.querySelector(".error");
+    error.style.display = "block";
+  }
+}
+
+function render_main(){
+  let validation_block = document.querySelector(".validation");
+  validation_block.setAttribute("class", "validation");
+  validation_block.setAttribute("class", "d-none");
+
+  book.setAttribute("class", "book");
+  book.setAttribute("class", "d-flex");
+  book.setAttribute("class", "align-items-center");
+}
+
+
+let sign_out = document.querySelector(".sign_out");
+sign_out.addEventListener("click", out);
+
+function out(){
+  localStorage.removeItem("Login");
+  localStorage.removeItem("Role");
+  if (localStorage.getItem("Role") != "Admin") {
+    console.log("WFT");
+    book.setAttribute("class", "d-none");
+
+    validation_block.classList = "validation d-flex justify-content-center align-items-center";
+  }
+}
 
