@@ -122,14 +122,32 @@ let request = fetch('https://swapi.co/api/people/?page=1')
 
   return response.json();
 })
-.then(function (data) {
-  console.log(data);
-  render_table(data);
-
-  })
 .catch((error) => {
   console.error(error);
 });
+
+request.then((data) => {
+  //console.log(data);
+  render_table(data);
+});
+
+request.catch((error) => {
+    console.error(error);
+});
+/* 
+
+.then(function (data) {
+  console.log(data);
+  render_table(data);
+  return data.next;
+  })
+.then((next_page) => {
+  fetch(next_page)
+  return next_page.json();
+})
+
+
+*/
 
 function render_table(data){
   let table = document.querySelector("table");
@@ -159,7 +177,7 @@ function render_table(data){
   }
 }
 
-/* create pagination */
+/* create pagination and preloader */
 
 
 
