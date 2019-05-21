@@ -1,4 +1,4 @@
-window.addEventListener("load", init);
+/* window.addEventListener("load", init);
 
 let nextPage = 1
 let button_next = document.querySelector(".next_table");
@@ -108,9 +108,112 @@ let Backrender_table = (data) => {
     arrOftd[cntr++].innerHTML = data.results[i].birth_year;
     arrOftd[cntr++].innerHTML = data.results[i].skin_color;
   }
+} */
+
+/* Paginator with Promises end fetch start */
+
+
+let request = fetch('https://swapi.co/api/people/?page=1')
+.then(function (response) {
+  //alert(response.headers.get('Content-Type'));
+  //alert(response.status);
+
+  return response.json();
+})
+.catch((error) => {
+  console.error(error);
+});
+
+request.then((data) => {
+  //console.log(data);
+  render_table(data);
+});
+
+request.catch((error) => {
+    console.error(error);
+});
+/* 
+
+.then(function (data) {
+  console.log(data);
+  render_table(data);
+  return data.next;
+  })
+.then((next_page) => {
+  fetch(next_page)
+  return next_page.json();
+})
+
+
+*/
+
+function render_table(data){
+  let table = document.querySelector("table");
+  for (let i = 0; i < 10; i++) {
+    let tr = document.createElement("tr");
+    let td = document.createElement("td");
+    let td_2 = document.createElement("td");
+    let td_3 = document.createElement("td");
+    let td_4 = document.createElement("td");
+    let td_5 = document.createElement("td");
+    let td_6 = document.createElement("td");
+
+    td.innerHTML = data.results[i].name;
+    td_2.innerHTML = data.results[i].gender;
+    td_3.innerHTML = data.results[i].height;
+    td_4.innerHTML = data.results[i].mass;
+    td_5.innerHTML = data.results[i].birth_year;
+    td_6.innerHTML = data.results[i].skin_color;
+
+    tr.appendChild(td);
+    tr.appendChild(td_2);
+    tr.appendChild(td_3);
+    tr.appendChild(td_4);
+    tr.appendChild(td_5);
+    tr.appendChild(td_6);
+    table.appendChild(tr);
+  }
 }
 
+/* create pagination and preloader */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Paginator with Promises end fetch end */
 
 
 
