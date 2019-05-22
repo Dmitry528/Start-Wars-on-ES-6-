@@ -28,21 +28,31 @@ function render_table(data){
 }
 
 
-let url = `https://swapi.co/api/people/?page=1`;
-
-fetch(url)
+fetch(`https://swapi.co/api/people/?page=1`)
 .then((response) => {
   return response.json();
 })
 .then((data) => {
   render_table(data);
+});
+
+fetch(`https://swapi.co/api/people/?page=2`)
+  .then((response) => {
+    return response.json();
 })
+  .then((data) => {
+    let counter = 0;
 
+    for(let i = 0; i < 10; i++){
+      localStorage.setItem("Name" + counter, data.results[counter].name);
+      counter++;
+    }
+});
 
+let button_next = document.querySelector(".next_table");
+button_next.addEventListener("click", function(){
 
-
-
-
+});
 
 
 
