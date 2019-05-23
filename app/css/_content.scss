@@ -68,6 +68,77 @@ main{
                 color: $color-primary_3;
             }
         }
+        .pagination {
+            position: absolute;
+            left: 50%;
+            list-style: none outside none;
+            color: #fff;
+            height: 300px;
+            
+            @for $i from 1 through 8 {
+                li:nth-of-type(#{$i}) {
+                top: $i * 40px;
+                }
+            } 
+            
+            li {
+                display: block;
+                border: 1px solid #fff;
+                max-width: 8px;
+                height: 30px;
+                overflow: hidden;    
+                opacity: 0.6;
+                transition: all 0.2s 0 linear;
+                text-align: center;
+                position: absolute;
+                right: 0;
+                transition: all 0.2s ease-out;
+                cursor: pointer;
+                
+                p {
+                display: inline-block;
+                width: 100px;
+                line-height: 30px;
+                color: #ffffff;
+                font-weight: bold;
+                text-decoration: none;
+                }
+                
+                &.active {
+                background-color: #fff;
+                }
+                
+                &:hover {
+                max-width: 100px;    
+                opacity: 1;
+                border: 0;
+                
+                a {
+                    color: #fff;
+                }
+                }
+                
+                &.red:hover {
+                background-color: $red;
+                }
+                
+                &.gold:hover {
+                background-color: $gold;
+                }
+                
+                &.purple:hover {
+                background-color: $purple;
+                }
+                
+                &.blue:hover {
+                background-color: $blue;
+                }
+                
+                &.brown:hover {
+                background-color: $brown;
+                }
+            }
+        }
     }  
 }
 

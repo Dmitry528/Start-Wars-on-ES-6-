@@ -36,9 +36,11 @@ fetch(`https://swapi.co/api/people/?page=1`)
   render_table(data);
   return data.next;
 })
-.then((data_next) => {
-  button_next.addEventListener("click", function(){
-    fetch(data_next)
+
+.then(() => {
+  let page_1 = document.querySelector(".page_1");
+  page_1.addEventListener("click", function () {
+  fetch(`https://swapi.co/api/people/?page=1`)
     .then((response) => {
       return response.json();
     })
@@ -48,7 +50,100 @@ fetch(`https://swapi.co/api/people/?page=1`)
   })
 })
 
-var button_next = document.querySelector(".next_table");
+.then(() => {
+  let page_2 = document.querySelector(".page_2");
+  page_2.addEventListener("click", function(){
+    fetch(`https://swapi.co/api/people/?page=2`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      reRender(data);
+    });
+  })
+})
+
+.then(() => {
+  let page_3 = document.querySelector(".page_3");
+  page_3.addEventListener("click", function () {
+    fetch(`https://swapi.co/api/people/?page=3`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        reRender(data);
+      });
+  })
+})
+
+.then(() => {
+  let page_4 = document.querySelector(".page_4");
+  page_4.addEventListener("click", function () {
+    fetch(`https://swapi.co/api/people/?page=4`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        reRender(data);
+      });
+  })
+})
+
+.then(() => {
+  let page_5 = document.querySelector(".page_5");
+  page_5.addEventListener("click", function () {
+  fetch(`https://swapi.co/api/people/?page=5`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      reRender(data);
+    });
+  })
+})
+
+.then(() => {
+  let page_6 = document.querySelector(".page_6");
+  page_6.addEventListener("click", function () {
+  fetch(`https://swapi.co/api/people/?page=6`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      reRender(data);
+    });
+  })
+})
+
+.then(() => {
+  let page_7 = document.querySelector(".page_7");
+  page_7.addEventListener("click", function () {
+  fetch(`https://swapi.co/api/people/?page=7`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      reRender(data);
+    });
+  })
+})
+
+.then(() => {
+  let page_8 = document.querySelector(".page_8");
+  page_8.addEventListener("click", function () {
+  fetch(`https://swapi.co/api/people/?page=8`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      reRender(data);
+    });
+  })
+})
+
+
+
+
 
 
 function reRender(data){
