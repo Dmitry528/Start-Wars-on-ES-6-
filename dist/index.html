@@ -29,18 +29,159 @@
     <link rel="icon" type="image/png" sizes="16x16" href=""><!-- Иконка сайта в вкладке 16х16 -->
     <meta name="theme-color" content="#ffffff"><!-- Цвет вкладки в мобильном хроме -->
     <!-- Подключаемые стили -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <header>
-        
+        <div class="container-fluid background">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 d-sm-block d-none">
+                    <div class="img_wrapper d-flex align-items-center justify-content-around flex-column">
+                        <button class="btn_primary_1 button_shoose">
+                            Choose your side
+                        </button>
+                       <div class="img_side d-flex justify-content-around">
+                            <i class="fas fa-arrow-left prev"></i>
+                            <div class="currency_side">
+                                <i></i>
+                            </div>
+                            <i class="fas fa-arrow-right next"></i>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-4 col-sm-6 col-12">
+                    <div class="title_wrapper d-flex flex-column justify-content-around align-items-center">
+                       <p class="title">
+                            Star Wars
+                       </p>
+                       <p class="text_cap_title">
+                            Reference book
+                       </p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 d-md-block d-none">
+                    <div class="contact_wrapper d-flex flex-column">
+                        <div class="text_wrapper d-flex justify-content-center align-items-center">
+                            <p class="contact">
+                                We needs YOU!
+                            </p>
+                        </div>
+                        <div class="contact_img d-flex justify-content-around align-items-center">
+                            <i class="fab fa-youtube"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-facebook-square"></i>
+                            <i class="fab fa-pinterest-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-    <main>
-        
+    <div class="main_slider d-flex align-items-center">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-1">
+                    <div class="btn_wrapper d-flex justify-content-end align-items-center">
+                        <i class="fas fa-arrow-circle-left prev_slider"></i>
+                    </div>
+                </div>
+                <div class="col-xl-10">
+                    <div class="img_wrapper d-flex justify-content-center align-items-center">
+                        <img src="" alt="img" class="current_slider">
+                    </div>
+                </div>
+                <div class="col-xl-1">
+                    <div class="btn_wrapper d-flex justify-content-start align-items-center">
+                        <i class="fas fa-arrow-circle-right next_slider"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="book d-none align-items-center">
+    
+       <div class="container-fluid">
+           <div class="row">
+                <div class="col-12">
+                    <div class="btn_out_wrapper d-flex justify-content-center">
+                    <button class="btn btn-warning sign_out">Sign out</button>
+                    </div>
+                </div>
+               <div class="col-xl-2">
+                <div class="button_table_wrapper d-flex align-items-center justify-content-center">
+                    <!--
+                        <i class="fas fa-arrow-circle-left prev_table"></i>
+                    -->
+                    <ul class="pagination">
+                        <li class="active red page_1"><p>Page 1</p></li>
+                        <li class="purple page_2"><p>Page 2</p></li>
+                        <li class="gold page_3"><p>Page 3</p></li>
+                        <li class="blue page_4"><p>Page 4</p></li>
+                        <li class="brown page_5"><p>Page 5</p></li>
+                        <li class="blue page_6"><p>Page 6</p></li>
+                        <li class="gold page_7"><p">Page 7</p></li>
+                        <li class="purple page_8"><p>Page 8</p></li>
+                    </ul>
+                </div>
+               </div>
+                <div class="col-xl-10 d-flex align-items-center">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Height</th>
+                                <th scope="col">Mass</th>
+                                <th scope="col">Birth year</th>
+                                <th scope="col">Skin color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+           </div>
+       </div>
+    </main>
+    <main class="validation d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="validation_form_wrapper d-flex flex-column align-items-center justify-content-around">
+                        <h3>Validation</h3>
+                        <input type="text" class="login" placeholder="Login">
+                        <input type="password" class="password" placeholder="Password">
+                        <button class="btn btn-success btn_get_data">Sign in</button>
+                        <p class="error">Incorrect login or password !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
-        
+        <div class="container-fluid background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="contact_wrapper d-flex flex-column">
+                            <div class="text_wrapper d-flex justify-content-center align-items-center">
+                                <p class="contact">
+                                    Follow Us
+                                </p>
+                            </div>
+                            <div class="contact_img d-flex justify-content-around align-items-center">
+                                <i class="fab fa-youtube"></i>
+                                <i class="fab fa-instagram"></i>
+                                <i class="fab fa-facebook-square"></i>
+                                <i class="fab fa-pinterest-square"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <script src="js/main.js"></script>
 </body>
